@@ -1,0 +1,11 @@
+---
+- name: "Execute {{ ansible_connection }} provisioning steps"
+  hosts: "nexus"
+  tasks:
+    - name: "Include tasks to generate local configs"
+      include_tasks: "tasks/local_config.yml"
+      when: "ansible_connection == 'local'"
+
+    - name: "Include tasks to provisiong live devices"
+      include_tasks: "tasks/live_provision.yml"
+      when: "ansible_connection == 'network_cli'"
