@@ -1,0 +1,6 @@
+---
+- name: "Shortcut playbook for Nexus 5548 platforms"
+  import_playbook: "pb_core.yml"
+  vars:
+    device_type: 5548
+...

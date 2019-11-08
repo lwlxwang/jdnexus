@@ -1,1 +1,6 @@
+# Config for 93128
 hostname {{ sys.hostname }}
+
+{% if c.ntp.authenticate %}
+ntp authenticate
+{% endif %}

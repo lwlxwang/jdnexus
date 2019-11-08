@@ -1,0 +1,13 @@
+---
+# Specifies the hardware platform. Must be 5548 or 93128.
+device_type: 93128
+
+# Specifies whether to locally generate configs or push them
+# to the live devices. Must be "local" or "network_cli".
+ansible_connection: "local"
+
+# Common configuration data common to Nexus platforms
+c:
+  ntp:
+    authenticate: true
+...

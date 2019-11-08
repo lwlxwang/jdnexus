@@ -1,0 +1,17 @@
+---
+- block:
+    - name: "Ensure 'ansible_connection' is assigned a valid value"
+      assert:
+        that:
+          - "ansible_connection is defined"
+          - "ansible_connection in ['local', 'network_cli']"
+        msg: "Invalid value for 'ansible_connection'; {{ ansible_connection }}"
+
+    - name: "Ensure 'device_type' is assigned a valid value"
+      assert:
+        that:
+          - "device_type is defined"
+          - "device_type | int in [5548, 93128]"
+        msg: "Invalid value for 'device_type'; {{ device_type }}"
+  delegate_to: "localhost"
+...

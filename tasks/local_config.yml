@@ -20,8 +20,8 @@
         state: "directory"
   run_once: true
 
-- name: "Generate local config files"
+- name: "Generate local config files for device_type {{ device_type }}"
   template:
-    src: "templates/nexus{{ device_type }}.j2"
-    dest: "configs/{{ DTG }}/{{ inventory_hostname }}.txt"
+    src: "{{ playbook_dir }}/templates/nexus{{ device_type }}.j2"
+    dest: "configs/{{ DTG }}/{{ inventory_hostname }}_{{ device_type }}.txt"
     # newline_sequence: "\r\n"

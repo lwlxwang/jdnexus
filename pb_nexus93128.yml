@@ -1,0 +1,6 @@
+---
+- name: "Shortcut playbook for Nexus 93128 platforms"
+  import_playbook: "pb_core.yml"
+  vars:
+    device_type: 93128
+...

@@ -1,0 +1,6 @@
+---
+- name: "Push configuration to Nexus {{ device_type }}"
+  nxos_config:
+    src: "{{ playbook_dir }}/templates/nexus{{ device_types }}.j2"
+    save_when: "changed"
+...
