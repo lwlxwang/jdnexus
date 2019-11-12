@@ -13,5 +13,16 @@
           - "device_type is defined"
           - "device_type | int in [5548, 93128]"
         msg: "Invalid value for 'device_type'; {{ device_type }}"
+
+    - name: "Set peer_hostname to 'a' on node 'b'"
+      set_fact:
+        peer_hostname: "a"
+      when: "inventory_hostname == 'b'"
+
+    - name: "Set peer_hostname to 'b' on node 'a'"
+      set_fact:
+        peer_hostname: "b"
+      when: "inventory_hostname == 'a'"
+
   delegate_to: "localhost"
 ...

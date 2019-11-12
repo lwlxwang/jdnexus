@@ -6,8 +6,8 @@ device_type: 5548
 # to the live devices. Must be "local" or "network_cli".
 ansible_connection: "local"
 
-# Common configuration data common to Nexus platforms
-c:
-  ntp:
-    authenticate: true
+# Connectivity parameters for network_cli
+ansible_network_os: "nxos"
+ansible_user: "cisco"
+ansible_password: "cisco"
 ...

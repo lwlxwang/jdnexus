@@ -1,4 +1,9 @@
 ---
+- name: "Add MOTD banner on Nexus {{ device_type }} from motd_banner.txt"
+  nxos_banner:
+    banner: "motd"
+    text: "{{ lookup('file', playbook_dir ~ '/motd_banner.txt') }}"
+
 - name: "Push configuration to Nexus {{ device_type }}"
   nxos_config:
     src: "{{ playbook_dir }}/templates/nexus{{ device_types }}.j2"

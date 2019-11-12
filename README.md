@@ -29,14 +29,15 @@ This project uses many task files for modularity:
      $ tree configs/ --charset ascii
      configs/
      |-- 20191108T162914
-     |   |-- sw1_93128.txt
-     |   `-- sw2_93128.txt
+     |   |-- a_93128.txt
+     |   `-- b_93128.txt
      `-- 20191108T163537
-         |-- sw1_5548.txt
-         `-- sw2_5548.txt
+         |-- a_5548.txt
+         `-- b_5548.txt
      ```
   * `precheck.yml`: Always included. Performs basic input validation to
-    ensure Ansible-related variables are valid.
+    ensure Ansible-related variables are valid. Also determines the
+    `peer_hostname` for the vPC peer link description.
 
 ## Makefile
 The `Makefile` simplifies execution even further using these shortcuts:

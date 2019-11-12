@@ -1,0 +1,6 @@
+---
+sys:
+  role_priority: 1000
+  dest_peer_ka_ip: "172.30.255.254"
+  src_peer_ka_ip: "172.30.255.253"
+...
