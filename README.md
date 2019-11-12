@@ -45,6 +45,6 @@ The `Makefile` simplifies execution even further using these shortcuts:
   * `cfg`: Generates local configs using `pb_core.yml` with local connection.
   * `test`: Runs a dev test including linting and local config generation.
     This is the default goal and runs when typing `make` by itself.
-  * `n5548`: Runs the `pb_nexus5548.yml` playbook.
-  * `n93128`: Runs the `pb_nexus93128.yml` playbook.
+  * `n5`: Runs the `pb_nexus5548.yml` playbook.
+  * `n9`: Runs the `pb_nexus93128.yml` playbook.
   * `clean`: Removes playbook artifacts, such as configurations and logs.

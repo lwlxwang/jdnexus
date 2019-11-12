@@ -1,6 +1,6 @@
 ---
 # Specifies the hardware platform. Must be 5548 or 93128.
-device_type: 93128
+device_type: 5548
 
 # Specifies whether to locally generate configs or push them
 # to the live devices. Must be "local" or "network_cli".
