@@ -24,5 +24,9 @@
         peer_hostname: "b"
       when: "inventory_hostname == 'a'"
 
+    - name: "Store MOTD banner text"
+      set_fact:
+        motd_banner: "{{ lookup('file', playbook_dir ~ '/motd_banner.txt') }}"
+
   delegate_to: "localhost"
 ...
