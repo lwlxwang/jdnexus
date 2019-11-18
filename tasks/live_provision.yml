@@ -1,4 +1,32 @@
 ---
+- block:
+    - name: "Prompt for Nexus device username if not supplied"
+      pause:
+        prompt: "Enter Nexus device username"
+      register: "username_prompt"
+
+    - name: "Store ansible_user"
+      set_fact:
+        ansible_user: "{{ username_prompt.user_input }}"
+
+  when: "ansible_user is not defined or ansible_user == 'centos'"
+  run_once: true
+  delegate_to: "localhost"
+
+- block:
+    - name: "Prompt for Nexus device password if not supplied"
+      pause:
+        prompt: "Enter Nexus device password"
+      register: "password_prompt"
+
+    - name: "Store ansible_password"
+      set_fact:
+        ansible_password: "{{ password_prompt.user_input }}"
+
+  when: "ansible_password is not defined"
+  run_once: true
+  delegate_to: "localhost"
+
 - name: "Add MOTD banner on Nexus {{ device_type }} from motd_banner.txt"
   nxos_banner:
     banner: "motd"
