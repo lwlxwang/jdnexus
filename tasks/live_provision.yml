@@ -9,7 +9,7 @@
       set_fact:
         ansible_user: "{{ username_prompt.user_input }}"
 
-  when: "ansible_user is not defined or ansible_user == 'centos'"
+  when: "ansible_user in ['centos', 'ubuntu', 'ec2-user']"
   run_once: true
   delegate_to: "localhost"
 
