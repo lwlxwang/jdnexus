@@ -9,218 +9,223 @@ cdp enable
 
 
 vlan 495
-name v495.01.army-gef-ms-adr-hsm-mgt
+  name v495.01.army-gef-ms-adr-hsm-mgt
 
 vlan 496
-name v496.01.army-gef-vm-vmotion-mgt
+  name v496.01.army-gef-vm-vmotion-mgt
 
 vlan 497
-name v497.01.army-ms-cluster-mgt
+  name v497.01.army-ms-cluster-mgt
 
 vlan 498
-name v498.01.army-gef-iscsi-b-mgt
+  name v498.01.army-gef-iscsi-b-mgt
 
 vlan 499
-name v499.01.army-gef-iscsi-a-mgt
+  name v499.01.army-gef-iscsi-a-mgt
 
 vlan 970
-name v970.01.army-gef-oobm-mgt
+  name v970.01.army-gef-oobm-mgt
 
 vlan 971
-name v971.01.army-gef-ib-mgt
+  name v971.01.army-gef-ib-mgt
 
 vlan 972
-name v972.01.army-gef-ms-lvmn-mgt
+  name v972.01.army-gef-ms-lvmn-mgt
 
 vlan 1000
-shutdown
-name v1000.01.army-unused-ports
+  shutdown
+  name v1000.01.army-unused-ports
 
 vlan 1001
-name v1001.01.army-native-vlan
+  name v1001.01.army-native-vlan
 
 vlan 2170
-name v2170.01.army-gef-vm-nfs-mgt
+  name v2170.01.army-gef-vm-nfs-mgt
 
 vlan 2171
-name v2171.01.army-gef-vm-replica-mgt
+  name v2171.01.army-gef-vm-replica-mgt
 
 vlan 2172
-name v2172.01.army-gef-ms-hgs-emf-mgt
+  name v2172.01.army-gef-ms-hgs-emf-mgt
 
 vlan 2173
-name v2173.01.army-gef-vm-vxlan-mgt
+  name v2173.01.army-gef-vm-vxlan-mgt
 
 vlan 2174
-name v2174.01.army-gef-vm-uplink1-mgt
+  name v2174.01.army-gef-vm-uplink1-mgt
 
 vlan 2175
-name v2175.01.army-gef-vm-uplink2-mgt
+  name v2175.01.army-gef-vm-uplink2-mgt
 
 interface ethernet1/1
-description //// peer-link to {{ peer_hostname }} ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan  970-972,495-499,2170-2175
-channel-group 100 mode active
+  description //// peer-link to {{ peer_hostname }} ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan  970-972,495-499,2170-2175
+  channel-group 100 mode active
 
 interface ethernet1/2
-description //// peer-link to {{ peer_hostname }} ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan  970-972,495-799,2170-2175
-channel-group 100 mode active
+  description //// peer-link to {{ peer_hostname }} ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan  970-972,495-799,2170-2175
+  channel-group 100 mode active
 
 interface ethernet1/5
-description //// port channel to ucs_fi_a ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan  970-972,495-499,2170-2175
-channel-group 224 mode active
+  description //// port channel to ucs_fi_a ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan  970-972,495-499,2170-2175
+  channel-group 224 mode active
 
 interface ethernet1/6
-description //// port channel to ucs_fi_b ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan  970-972,495-499,2170-2175
-channel-group 225 mode active
+  description //// port channel to ucs_fi_b ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan  970-972,495-499,2170-2175
+  channel-group 225 mode active
 
 interface ethernet1/7-16
-description //// not used ////
-shutdown
-switchport access vlan 1000
+  description //// not used ////
+  shutdown
+  switchport access vlan 1000
 
 interface ethernet1/17
-description //// fab_int_mngt_b ////
-switchport access vlan 970
-spanning-tree port type edge
-speed 1000
+  description //// fab_int_mngt_b ////
+  switchport access vlan 970
+  spanning-tree port type edge
+  speed 1000
 
 interface ethernet1/18
-description //// netapp_fas_mngt_b ////
-switchport access vlan 970
-spanning-tree port type edge
-speed 1000
+  description //// netapp_fas_mngt_b ////
+  switchport access vlan 970
+  spanning-tree port type edge
+  speed 1000
 
 interface ethernet1/19-22
-description //// not used ////
-shutdown
-switchport access vlan 1000
+  description //// not used ////
+  shutdown
+  switchport access vlan 1000
 
 interface ethernet1/23
-description //// not used ////
-shutdown
-switchport access vlan 1000
+  description //// not used ////
+  shutdown
+  switchport access vlan 1000
 
 interface ethernet1/24
-description //// netapp_b e0e and e0f ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan  498-499
-channel-group 13 mode active
+  description //// netapp_b e0e and e0f ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan  498-499
+  channel-group 13 mode active
 
 interface ethernet1/25
-description //// netapp_a e0e and e0f ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan  498-499
-channel-group 14 mode active
+  description //// netapp_a e0e and e0f ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan  498-499
+  channel-group 14 mode active
 
 interface ethernet1/26
-description //// not used ////
-shutdown
-switchport access vlan 1000
+  description //// not used ////
+  shutdown
+  switchport access vlan 1000
 
 interface ethernet1/27
-description //// uplink switch a ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan 970-972,495-499,2170-2175
-channel-group 27 mode active
+  description //// uplink switch a ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan 970-972,495-499,2170-2175
+  channel-group 27 mode active
 
 interface ethernet1/28
-description //// uplink switch a ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan 970-972,495-499,2170-2175
-channel-group 27 mode active
+  description //// uplink switch a ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan 970-972,495-499,2170-2175
+  channel-group 27 mode active
 
 interface ethernet1/29
-description //// uplink switch b ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan 970-972,495-499,2170-2175
-channel-group 28 mode active
+  description //// uplink switch b ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan 970-972,495-499,2170-2175
+  channel-group 28 mode active
 
 interface ethernet1/30
-description //// uplink switch b (gef lab unused) ////
-switchport mode trunk
-switchport trunk native vlan 1001
-switchport trunk allowed vlan 970-972,495-499,2170-2175
-channel-group 28 mode active
+  description //// uplink switch b (gef lab unused) ////
+  switchport mode trunk
+  switchport trunk native vlan 1001
+  switchport trunk allowed vlan 970-972,495-499,2170-2175
+  channel-group 28 mode active
 
 spanning-tree port type edge bpduguard default
 spanning-tree port type edge bpdufilter default
 spanning-tree port type network default
 
 interface po100
-description //// peer-link port channel ////
-vpc peer-link
-no shutdown
-
-
-interface po13
-description //// port channel to iscsi_a ////
-no shutdown
-
-interface po14
-description //// port channel to iscsi_b ////
-no shutdown
-
-interface po27
-description //// uplink switch a ////
-no shutdown
-
-interface po28
-description //// uplink switch b ////
-no shutdown
-
-interface po224
-description //// port channel to ucs_fi_a ////
-spanning-tree port type edge trunk
-no shutdown
-
-interface po225
-description //// port channel to ucs_fi_b ////
-spanning-tree port type edge trunk
-no shudown
+  description //// peer-link port channel ////
+  vpc peer-link
+  no shutdown
 
 interface po13
-vpc 13
+  description //// port channel to iscsi_a ////
+  no shutdown
 
 interface po14
-vpc 14
+  description //// port channel to iscsi_b ////
+  no shutdown
 
 interface po27
-vpc 27
+  description //// uplink switch a ////
+  no shutdown
 
 interface po28
-vpc 28
+  description //// uplink switch b ////
+  no shutdown
 
 interface po224
-vpc 224
+  description //// port channel to ucs_fi_a ////
+  spanning-tree port type edge trunk
+  no shutdown
 
 interface po225
-vpc 225
+  description //// port channel to ucs_fi_b ////
+  spanning-tree port type edge trunk
+  no shudown
+
+interface po13
+  vpc 13
+
+interface po14
+  vpc 14
+
+interface po27
+  vpc 27
+
+interface po28
+  vpc 28
+
+interface po224
+  vpc 224
+
+interface po225
+  vpc 225
 
 ssh key rsa 2048 force
 line console
-exec-timout 10
+  exec-timout 10
 line vty
-exec-timout 10
-ip tcp synwait-time 10
+  exec-timout 10
+  ip tcp synwait-time 10
 {% if ansible_connection == "local" %}
 banner motd #
-{{ motd_banner }}
+You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM),law enforcement (LE), and counterintelligemce (CI) investigation.
+-At any time, the USG may inspect and seize data stored on this IS.
+-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG authorized purpose.
+-This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+-Notwithstanding the above, using this IS does not constitue consent to PM, LE or CI investigative searchin or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and thei assistants. Such communications and work product are private and confidential.
+See User Agreement for details.
 #
 {% endif %}
