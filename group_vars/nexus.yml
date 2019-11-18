@@ -4,7 +4,7 @@ device_type: 5548
 
 # Specifies whether to locally generate configs or push them
 # to the live devices. Must be "local" or "network_cli".
-ansible_connection: "local"
+ansible_connection: "network_cli"
 
 # Connectivity parameters for network_cli
 ansible_network_os: "nxos"

@@ -8,4 +8,20 @@
   nxos_config:
     src: "{{ playbook_dir }}/templates/nexus{{ device_types }}.j2"
     save_when: "changed"
+  register: "config_result"
+
+- block:
+    - name: "Create mods/ directory"
+      file:
+        path: "mods"
+        state: "directory"
+      run_once: true
+
+    - name: "Record last-known modifications if any exist"
+      copy:
+        content: "{{ config_result.updates | join('\n') }}"
+        dest: "{{ playbook_dir }}/mods/{{ inventory_hostname }}_mods.txt"
+
+  when: "config_result.updates is defined and config_result.updates"
+  delegate_to: "localhost"
 ...

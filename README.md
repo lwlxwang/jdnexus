@@ -22,6 +22,8 @@ This project uses many task files for modularity:
 
   * `live_provision.yml`: Included when `ansible_connection` is set to
     `network_cli`. Logs into the devices and applies the templated config.
+    Changes to each device are recorded in the `mods/` directory, if
+    any modifications were made.
   * `local_config.yml`: Included when `ansible_connection` is set to
     `local`. Generates configs locally in the `configs/` directory with
      a date/time stamped subdirectory. Example file tree shown below.
